@@ -6,11 +6,19 @@ import { physicsTutorAgent } from "./agents/physics-agent";
 import { pinecone } from "./tools/rag-tool";
 import { youtubeSearchAgent } from "./agents/youtube-agent";
 import { webSearchAgent } from "./agents/search-agent";
+import { ankiMcp } from "./agents/anki-agent";
+import { neonDb } from "./agents/db-agent";
 //import { MyCustomMCPServer } from 'your-mcp-server-package';
 
 export const mastra = new Mastra({
   // workflows: { weatherWorkflow },
-  agents: { physicsTutorAgent, youtubeSearchAgent, webSearchAgent },
+  agents: {
+    physicsTutorAgent,
+    youtubeSearchAgent,
+    webSearchAgent,
+    ankiMcp,
+    neonDb,
+  },
   vectors: { pinecone: pinecone as any },
   storage: new LibSQLStore({
     // stores telemetry, evals, ... into memory storage, if it needs to persist, change to file:../mastra.db
